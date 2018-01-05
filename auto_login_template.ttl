@@ -1,0 +1,23 @@
+; TeraTermMacro
+; Filename: auto_login_template.ttl
+; Update: 2018/01/05
+; Author: f.sakurai
+
+username = 'yamadahifumi'
+hostname = 'foobarsv'
+;passwd = 'yamada123'
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+connect 'foobarsv /ssh /auth=password /user=yamadahifumi /passwd=yamada123'
+
+; log setting
+logdir = 'C:\Users\yamadahifumi\Desktop\' ; sample）C:¥Users¥name¥Desktop¥ など
+
+logfile = logdir
+strconcat logfile username
+strconcat logfile '_'
+strconcat logfile hostname
+getdate datetime '-%Y%m%d-%H%M%S'
+strconcat logfile datetime
+strconcat logfile '.log'
+logopen logfile 0 1
